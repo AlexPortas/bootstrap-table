@@ -18,17 +18,25 @@
 <body>
   <h1>Estadísticas Covid</h1>
 
-  <table data-show-export="true" data-toggle="table" data-url="https://corona.lmao.ninja/v3/covid-19/countries/spain,france,germany,poland,finland">
+  <table id="tabla" data-show-export="true" data-toggle="table"
+    data-url="https://corona.lmao.ninja/v3/covid-19/countries/spain,france,germany,poland,finland">
     <thead>
       <tr>
         <th data-field="country">País</th>
-        <th data-field="population">Población Total</th>
-        <th data-field="casesPerOneMillion" data-sortable="true" data-formatter="priceFormatter">Casos activos</th>
-        <th data-field="updated">Ultima fecha de datos actualizados</th>
+        <th data-field="population">Pobliación total</th>
+        <th data-field="activePerOneMillion" data-cell-style="cellStyle" data-sortable="true">Casos activos por millón
+          de habitantes</th>
+        <th data-field="updated" data-formatter="timeFormatter">Última fecha de datos actualizados</th>
       </tr>
     </thead>
   </table>
-
+  <div class="container mt-2">
+    <form onsubmit="addCountry(event)">
+      <label for="next-country">Add Country</label>
+      <input id="next-country" type="text">
+      <input type="submit">
+    </form>
+  </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
